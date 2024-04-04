@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class GlobalConnection {
+	
+	
 
 	static {
 		try {
@@ -16,6 +18,6 @@ public class GlobalConnection {
 		
 	}
 	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/javapractise","root","Mysql@2238399");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/javapractise","root","Jagrutikp@98");
 	}
 }

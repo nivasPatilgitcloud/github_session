@@ -6,22 +6,19 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
 import githubdemo.globalconnection.GlobalConnection;
 
 public class VotingApp {
-	
+
 	public static void createPersonVotingReg() {
 		Connection con = null;
 		try {
 			con = GlobalConnection.getConnection();
-			String create = "insert into personvotingreg values(?,?,?)";
+			String create = "insert into personvotingreg (pname,page)values(?,?)";
 			PreparedStatement ps = con.prepareStatement(create);
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			
 			while(true) {
-				System.out.println("Enter person id");
-				int personId = Integer.parseInt(br.readLine());
 				
 				System.out.println("Enter voting person name");
 				String nm = br.readLine();
@@ -29,17 +26,13 @@ public class VotingApp {
 				System.out.println("Enter voting person age");
 				int age = Integer.parseInt(br.readLine());
 				
-				ps.setInt(1, personId);
-				ps.setString(2, nm);
-				ps.setInt(3, age);
+				
+				ps.setString(1, nm);
+				ps.setInt(2, age);
 				
 				int data = ps.executeUpdate();
 				// reduce this if statement
-				if(data>0) {
-					System.out.println(data+" records inserted successfully");
-				}else {
-					System.out.println("Please try again...");
-				}
+				System.out.println((data>0)? data+"voting record inserted successfully":"failed to insert");				
 				System.out.println("Want to add another record for person voting reg yes / no");
 				String check = br.readLine();
 				if(check.equalsIgnoreCase("no")) {
