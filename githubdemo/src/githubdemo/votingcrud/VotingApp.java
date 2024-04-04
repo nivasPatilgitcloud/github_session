@@ -11,7 +11,7 @@ import githubdemo.globalconnection.GlobalConnection;
 
 public class VotingApp {
 	
-	public static void createPersonVotingReg() {
+	public void createPersonVotingReg() {
 		Connection con = null;
 		try {
 			con = GlobalConnection.getConnection();
