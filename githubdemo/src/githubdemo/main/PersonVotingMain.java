@@ -7,7 +7,8 @@ public class PersonVotingMain {
 
 	public static void main(String[] args) {
 
-		VotingApp.createPersonVotingReg();
+		VotingApp app = new VotingApp();
+		app.createPersonVotingReg();
 
 		
 	}
