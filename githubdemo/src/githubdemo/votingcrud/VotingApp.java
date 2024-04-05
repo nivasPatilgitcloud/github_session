@@ -11,7 +11,7 @@ import githubdemo.globalconnection.GlobalConnection;
 
 public class VotingApp {
 	// method for inserting records
-	public static void createPersonVotingReg() {
+	public void createPersonVotingReg() {
 		Connection con = null;
 		try {
 			con = GlobalConnection.getConnection();
@@ -85,4 +85,36 @@ public class VotingApp {
 		}
 	}
 
+	public void deletePersonVotinRegDetails() {
+		Connection con = null;
+		try {
+			con = GlobalConnection.getConnection();
+			String delete = "delete from personvotingreg where pname=?";
+			PreparedStatement ps = con.prepareStatement(delete);
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			while (true) {
+				System.out.println("Enter prson name for delete record");
+				String name = br.readLine();
+				ps.setString(1, name);
+				int data = ps.executeUpdate();
+				System.out.println((data > 0) ? data + "voting record deleted successfully" : "failed to delete");
+				System.out.println("Want to delete another record for person voting reg yes / no");
+				String check = br.readLine();
+				if (check.equalsIgnoreCase("no")) {
+					break;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			if (con != null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					System.out.println("Exception in createPersonVotingReg method");
+					e.printStackTrace();
+				}
+			}
+		}	
+	}
 }
