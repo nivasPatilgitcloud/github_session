@@ -11,6 +11,8 @@ public class PersonVotingMain {
 //		app.createPersonVotingReg();
 
 		VotingApp app = new VotingApp();
-		app.createPersonVotingReg();
+		VotingApp.createPersonVotingReg();
+		
+		app.retrivePersonVotinRegDetails();
 	}
 }

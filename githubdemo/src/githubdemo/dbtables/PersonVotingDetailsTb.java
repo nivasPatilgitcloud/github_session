@@ -11,7 +11,7 @@ public class PersonVotingDetailsTb {
 
 		try {
 			con=GlobalConnection.getConnection();
-			String query = "create table personvotingreg(pid int NOT NULL AUTO_INCREMENT, pname varchar(255), page int, PRIMARY KEY(id))";
+			String query = "create table personvotingreg(pid int NOT NULL AUTO_INCREMENT, pname varchar(255), page int, PRIMARY KEY(pid))";
 			Statement statement = con.createStatement();
 			statement.executeUpdate(query);
 			System.out.println("Table created successfully");
