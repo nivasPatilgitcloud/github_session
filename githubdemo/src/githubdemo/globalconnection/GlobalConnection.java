@@ -18,6 +18,6 @@ public class GlobalConnection {
 		
 	}
 	public static Connection getConnection() throws SQLException {
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/javapractise","root","Jagrutikp@98");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/javapractise","root","Mysql@2238399");
 	}
 }
